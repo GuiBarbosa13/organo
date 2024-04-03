@@ -6,7 +6,13 @@ import { useState } from 'react';
 
 const Formulario = (props) => {
 
-    const times = ['Front-end', 'DevOps', 'Back-end', 'Dados'];
+    const times = 
+    [
+        'Front-end',
+        'DevOps',
+        'Back-end',
+        'Dados',
+    ];
 
     const [nome, setNome] = useState('');
     const [cargo, setCargo] = useState('');
