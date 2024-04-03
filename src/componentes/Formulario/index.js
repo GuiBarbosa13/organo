@@ -4,7 +4,7 @@ import ListaSuspensa from '../ListaSuspensa';
 import Botao from '../Botao';
 import { useState } from 'react';
 
-const Formulario = () => {
+const Formulario = (props) => {
 
     const times = ['Front-end', 'DevOps', 'Back-end', 'Dados'];
 
@@ -18,7 +18,12 @@ const Formulario = () => {
 
     const enviarForm = (evento) => {
         evento.preventDefault();
-        console.log('Formulário enviado! =>', nome, cargo, imagem, time)
+        console.log(props.aoColaboradorCadastrado({
+            nome: nome,
+            cargo: cargo,
+            time: time,
+            imagem: imagem,
+        }));
     };
 
     return (
