@@ -1,0 +1,26 @@
+.rodape{
+    background-image: url('C:\Users\guilh\Desktop\Curso Alura\react\curso 1\organo\organo\public\fundo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-color: #6278F7;
+
+    display: flex;
+    justify-content: space-around;
+    padding: 4em 2em;
+}
+
+.rodape div{
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.rodape p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+
+}
