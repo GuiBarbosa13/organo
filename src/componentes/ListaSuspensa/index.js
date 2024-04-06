@@ -9,6 +9,7 @@ const ListaSuspensa = (props) => {
                 required = {props.required} 
                 value={props.valor}
             >
+                <option value={''}></option>
                 {props.itens.map((item) => <option key={item}>{item}</option>)} 
                 {/* Para cada item em itens, imprime a tag option com esse item dentro do select (drop-list). */}
             </select>

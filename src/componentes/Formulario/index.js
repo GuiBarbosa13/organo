@@ -12,13 +12,13 @@ const Formulario = (props) => {
     const [cargo, setCargo] = useState('');
     const [imagem, setImagem] = useState('');
 
-    const [time, setTime] = useState(times[0]);
+    const [time, setTime] = useState('');
 
     
 
     const enviarForm = (evento) => {
         evento.preventDefault();
-        console.log(props.aoColaboradorCadastrado({
+        (props.aoColaboradorCadastrado({
             nome: nome,
             cargo: cargo,
             time: time,
@@ -27,6 +27,7 @@ const Formulario = (props) => {
         setNome('');
         setCargo('');
         setImagem('');
+        setTime('');
     };
 
     return (
