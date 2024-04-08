@@ -1,5 +1,5 @@
 .rodape{
-    background-image: url('C:\Users\guilh\Desktop\Curso Alura\react\curso 1\organo\organo\public\fundo.png');
+    background-image: url('/public/fundo.png');
     background-repeat: no-repeat;
     background-size: cover;
 
