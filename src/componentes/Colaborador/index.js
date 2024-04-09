@@ -1,8 +1,10 @@
+import { TiUserDelete } from "react-icons/ti";
 import './Colaborador.css';
 
 const Colaborador = (props) => {
     return(
         <div className='colaborador'>
+            <TiUserDelete size={28} cursor={'pointer'} className='deletar' onClick={props.aoDeletar}/>
             <div className='cabecalho' style={{backgroundColor:props.corDeFundo}}>
                 <img src={props.imagem} alt={props.nome}/>
             </div>
