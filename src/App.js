@@ -6,25 +6,21 @@ import Rodape from './componentes/Rodape';
 
 function App() {
 
-  const times = [
+  const [times, setTimes] = useState([
     {
       nome: 'Front-end',
-      corPrimaria: '#57C278',
-      corSecundaria: '#D9F7E9',
+      cor: '#57C278',
     }, {
       nome: 'DevOps',
-      corPrimaria: '#82CFFA',
-      corSecundaria: '#E8F8FF',
+      cor: '#82CFFA',
     }, {
       nome: 'Back-end',
-      corPrimaria: '#A6D157',
-      corSecundaria: '#F0F8E2',
+      cor: '#A6D157',
     }, {
       nome: 'Dados',
-      corPrimaria: '#E06B69',
-      corSecundaria: '#FDE7E8',
+      cor: '#E06B69',
     }
-  ];
+  ]);
 
   const [colaboradores, setColaboradores] = useState([])
 
@@ -34,6 +30,15 @@ function App() {
 
   function deletarColaborador(){
     console.log('colaborador deletado')
+  }
+
+  function mudaCor(cor, nome){
+    setTimes(times.map(time => {
+      if(time.nome === nome){
+        time.cor = cor
+      } 
+      return time;
+    }));
   }
 
   return (
@@ -48,9 +53,9 @@ function App() {
       {times.map((time) => 
         <Time 
           key={time.nome} 
-          time={time.nome} 
-          corPrimaria={time.corPrimaria} 
-          corSecundaria={time.corSecundaria}
+          time={time.nome}
+          mudarCor = {mudaCor} 
+          cor={time.cor} 
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
           aoDeletar = {deletarColaborador}
         />
