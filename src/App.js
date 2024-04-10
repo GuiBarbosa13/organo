@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Banner from './componentes/Banner/';
 import Formulario from './componentes/Formulario';
 import Time from './componentes/Time';
@@ -8,33 +9,45 @@ function App() {
 
   const [times, setTimes] = useState([
     {
+      id: uuidv4(),
       nome: 'Front-end',
       cor: '#57C278',
     }, {
+      id: uuidv4(),
       nome: 'DevOps',
       cor: '#82CFFA',
     }, {
+      id: uuidv4(), //cria um id único para cada time
       nome: 'Back-end',
       cor: '#A6D157',
     }, {
+      id: uuidv4(),
       nome: 'Dados',
       cor: '#E06B69',
     }
   ]);
 
-  const [colaboradores, setColaboradores] = useState([])
+  const [colaboradores, setColaboradores] = useState([
+    {
+      id: uuidv4(),
+      nome: "Guilherme Barbosa",
+      cargo: "Desenvolvedor",
+      imagem: "http://github.com/GuiBarbosa13.png",
+      time: times[0].nome
+    }
+  ])
 
   const aoColaboradorAdicionado = (colaborador) => {
     setColaboradores([...colaboradores, colaborador])
   }
 
-  function deletarColaborador(){
-    console.log('colaborador deletado')
+  function deletarColaborador(id){
+    setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id));
   }
 
-  function mudaCor(cor, nome){
+  function mudaCor(cor, id){
     setTimes(times.map(time => {
-      if(time.nome === nome){
+      if(time.id === id){
         time.cor = cor
       } 
       return time;
@@ -54,6 +67,7 @@ function App() {
         <Time 
           key={time.nome} 
           time={time.nome}
+          id={time.id}
           mudarCor = {mudaCor} 
           cor={time.cor} 
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
