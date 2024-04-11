@@ -54,6 +54,14 @@ function App() {
     }));
   }
 
+  function cadastrarTime(novoTime){
+      let listaTimes = times.map(time => time.nome);
+
+      if (!listaTimes.includes(novoTime.nome)){
+        setTimes([...times,{...novoTime, id: uuidv4()}])
+      }      
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -61,6 +69,7 @@ function App() {
       <Formulario
         times={times.map(time => time.nome)}
         aoColaboradorCadastrado={colaborador => aoColaboradorAdicionado(colaborador)}
+        cadastrarTime = {cadastrarTime}
       />
 
       {times.map((time) => 
