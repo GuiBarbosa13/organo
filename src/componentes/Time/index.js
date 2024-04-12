@@ -14,7 +14,19 @@ const Time = (props) =>{
 
             <div className='colaboradores'>
                 {props.colaboradores.map(colab => {
-                    return <Colaborador corDeFundo = {props.cor} key = {colab.nome + colab.time + colab.imagem} nome = {colab.nome} cargo = {colab.cargo} imagem = {colab.imagem} aoDeletar = {props.aoDeletar} id = {colab.id}/>
+                    return (
+                    <Colaborador 
+                        corDeFundo = {props.cor} 
+                        key = {colab.nome + colab.time + colab.imagem} 
+                        nome = {colab.nome} 
+                        cargo = {colab.cargo} 
+                        imagem = {colab.imagem} 
+                        aoDeletar = {props.aoDeletar} 
+                        id = {colab.id}
+                        time = {props.time}
+                        favorito = {colab.favorito}
+                        aoFavoritar = {props.aoFavoritar}
+                    />)
                     })
                 }
 

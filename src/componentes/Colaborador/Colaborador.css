@@ -45,3 +45,8 @@
     right: -16px;
     top: -10px;
 }
+
+.favoritar{
+    display: flex;
+    justify-content: end;
+}

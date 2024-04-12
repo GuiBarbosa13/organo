@@ -4,6 +4,7 @@ import ListaSuspensa from '../ListaSuspensa';
 import Botao from '../Botao';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { type } from '@testing-library/user-event/dist/type';
 
 const Formulario = (props) => {
 
@@ -28,6 +29,7 @@ const Formulario = (props) => {
             cargo: cargo,
             time: time,
             imagem: imagem,
+            favorito: false
         }));
         setNome('');
         setCargo('');
@@ -45,6 +47,7 @@ const Formulario = (props) => {
                     label="Nome" 
                     placeholder="Digite seu nome"
                     valor = {nome}
+                    type = "text"
                     aoAlterado = {valor => setNome(valor)}
                 />
 
@@ -53,6 +56,7 @@ const Formulario = (props) => {
                     label="Cargo"
                     placeholder="Digite seu cargo"
                     valor = {cargo}
+                    type = "text"
                     aoAlterado = {valor => setCargo(valor)}
                 />
 
@@ -60,6 +64,7 @@ const Formulario = (props) => {
                     label="Imagem" 
                     placeholder="Informe o endereço da imagem" 
                     valor = {imagem}
+                    type = "text"
                     aoAlterado = {valor => setImagem(valor)}
                 />
 
@@ -76,7 +81,9 @@ const Formulario = (props) => {
             <form className='form-time'
                 onSubmit={(evento) =>{
                 evento.preventDefault();
-                props.cadastrarTime({nome: nomeTime, cor: corTime});
+                props.cadastrarTime({id:uuidv4(), nome: nomeTime, cor: corTime, type:"text"});
+                setNomeTime('')
+                setCorTime('#32a852')
             }}>
                 <h2>Preencha os dados para criar um novo time.</h2>
                 <Campo 

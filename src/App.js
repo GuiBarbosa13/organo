@@ -12,18 +12,22 @@ function App() {
       id: uuidv4(),
       nome: 'Front-end',
       cor: '#57C278',
+      type: "text",
     }, {
       id: uuidv4(),
       nome: 'DevOps',
       cor: '#82CFFA',
+      type: "text",
     }, {
       id: uuidv4(), //cria um id único para cada time
       nome: 'Back-end',
       cor: '#A6D157',
+      type: "text",
     }, {
       id: uuidv4(),
       nome: 'Dados',
       cor: '#E06B69',
+      type: "text",
     }
   ]);
 
@@ -33,7 +37,8 @@ function App() {
       nome: "Guilherme Barbosa",
       cargo: "Desenvolvedor",
       imagem: "http://github.com/GuiBarbosa13.png",
-      time: times[0].nome
+      time: times[0].nome,
+      favorito: true,
     }
   ])
 
@@ -62,6 +67,13 @@ function App() {
       }      
   }
 
+  function resolverFav(id){
+    setColaboradores(colaboradores.map(colaborador =>{
+      if (colaborador.id === id) colaborador.favorito = !colaborador.favorito
+      return colaborador
+    }))   
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -81,6 +93,7 @@ function App() {
           cor={time.cor} 
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
           aoDeletar = {deletarColaborador}
+          aoFavoritar = {resolverFav}
         />
       )}
 
