@@ -36,13 +36,7 @@ const Formulario = (props) => {
         setTime('');
     };
 
-    let estadoForms = useState(props.estadoForms);
-
-    function fecharForm(){
-        estadoForms = !estadoForms
-
-        console.log(estadoForms)
-    }
+    
 
     let display = "";
 
@@ -58,7 +52,7 @@ const Formulario = (props) => {
 
         <>
 
-            <section className={`formulario ${display}`}>
+            <section className={`formulario `}>
                 <form onSubmit={enviarForm}>
                     <h2>Preencha os dados para criar o card do colaborador.</h2>
                     <Campo

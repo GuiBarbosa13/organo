@@ -46,6 +46,8 @@ function App() {
     setColaboradores([...colaboradores, colaborador])
   }
 
+  let [estadoForms, setEstadoForms] = useState(props.estadoForms);
+
   function deletarColaborador(id){
     setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id));
   }
@@ -74,6 +76,12 @@ function App() {
     }))   
   }
 
+  function fecharForm(){
+    setEstadoForms(!estadoForms)
+
+    console.log(estadoForms)
+}
+
 
 
   return (
@@ -84,7 +92,8 @@ function App() {
         times={times.map(time => time.nome)}
         aoColaboradorCadastrado={colaborador => aoColaboradorAdicionado(colaborador)}
         cadastrarTime = {cadastrarTime}
-        estadoForms = {true}
+        estadoForms = {estadoForms}
+        fecharForm = {fecharForm}
       />
 
       {times.map((time) => 
