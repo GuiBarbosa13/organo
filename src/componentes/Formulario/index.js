@@ -36,14 +36,11 @@ const Formulario = (props) => {
         setTime('');
     };
 
-    
-
-    let display = "";
-
-    if (estadoForms){
-        display = "show";
+    let display = ''
+    if(props.estadoForms){
+        display = 'show'
     }else{
-        display = "hide"
+        display = 'hide'
     }
 
     return (
@@ -52,7 +49,7 @@ const Formulario = (props) => {
 
         <>
 
-            <section className={`formulario `}>
+            <section className={`formulario-${display}`}>
                 <form onSubmit={enviarForm}>
                     <h2>Preencha os dados para criar o card do colaborador.</h2>
                     <Campo
@@ -123,7 +120,7 @@ const Formulario = (props) => {
 
             <div className='controles'>
                 
-                <div><button onClick={fecharForm}><img src='/button.svg' alt='Botão para expandir formulários' /></button></div>
+                <div><button onClick={props.fecharForm}><img src='/button.svg' alt='Botão para expandir formulários' /></button></div>
 
                 <h4>Minha organização:</h4>           
 
