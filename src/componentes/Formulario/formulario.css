@@ -6,6 +6,10 @@
     gap: 24px;
 }
 
+.hide{
+    display: none;
+}
+
 .formulario form{
     background-color: #F6F6F6;
     padding: 36px 64px;
@@ -16,4 +20,29 @@
 
 .formulario .form-time{
     height: fit-content;
+}
+
+.controles{
+    padding: 0 64px;
+}
+
+.controles h4{    
+    font-size: 36px;
+    color: #6278F7;
+    text-align: center;
+
+}
+
+.controles div{
+    text-align: end;
+    height: 8px;
+}
+
+.controles button{
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    align-items: end;
+    position: relative;
+    top: 20px;
 }

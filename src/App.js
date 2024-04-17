@@ -74,6 +74,8 @@ function App() {
     }))   
   }
 
+
+
   return (
     <div className="App">
       <Banner />
@@ -82,6 +84,7 @@ function App() {
         times={times.map(time => time.nome)}
         aoColaboradorCadastrado={colaborador => aoColaboradorAdicionado(colaborador)}
         cadastrarTime = {cadastrarTime}
+        estadoForms = {true}
       />
 
       {times.map((time) => 
