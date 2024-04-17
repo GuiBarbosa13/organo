@@ -46,7 +46,7 @@ function App() {
     setColaboradores([...colaboradores, colaborador])
   }
 
-  let [estadoForms, setEstadoForms] = useState(true);
+  let [estadoForms, setEstadoForms] = useState(false);
 
   function deletarColaborador(id){
     setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id));

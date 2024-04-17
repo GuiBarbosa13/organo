@@ -36,12 +36,7 @@ const Formulario = (props) => {
         setTime('');
     };
 
-    let display = ''
-    if(props.estadoForms){
-        display = 'show'
-    }else{
-        display = 'hide'
-    }
+    let display = props.estadoForms ? "show": "hide"
 
     return (
 
