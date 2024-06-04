@@ -84,7 +84,7 @@ function App() {
 
   return (
     <div className="App">
-      <Banner />
+      <Banner enderecoImagem="/banner.png" textoAlt='Banner principal da página da organo'/>
 
       <Formulario
         times={times.map(time => time.nome)}
