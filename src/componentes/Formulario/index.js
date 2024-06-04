@@ -38,12 +38,8 @@ const Formulario = (props) => {
 
     let display = props.estadoForms ? "show": "hide"
 
-    return (
-
-        
-
+    return (      
         <>
-
             <section className={`formulario-${display}`}>
                 <form onSubmit={enviarForm}>
                     <h2>Preencha os dados para criar o card do colaborador.</h2>

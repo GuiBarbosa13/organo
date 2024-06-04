@@ -78,8 +78,6 @@ function App() {
 
   function fecharForm(){
     setEstadoForms(!estadoForms)
-
-    console.log(estadoForms)
 }
 
 
