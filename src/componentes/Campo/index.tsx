@@ -2,10 +2,10 @@ import './Campo.css';
 
 interface CampoProps{
     aoAlterado: (valor: string) => void,
-    obrigatorio: boolean,
+    obrigatorio?: boolean,
     label: string,
     placeholder: string,
-    type: string,
+    type?: string,
     valor: string,
 }
 

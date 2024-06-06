@@ -4,10 +4,20 @@ import ListaSuspensa from '../ListaSuspensa';
 import Botao from '../Botao';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { IColaborador } from '../../shared/interface/IColaborador';
+import { ITime } from '../../shared/interface/ITime';
 
-const Formulario = (props) => {
+interface FormularioProps{
+    times: string[],
+    aoColaboradorCadastrado: (colaborador: IColaborador) => void,
+    estadoForms: boolean,
+    cadastrarTime: (time:ITime) => void,
+    fecharForm: () => void,
+}
 
-    const times = props.times;
+const Formulario = ({ times,aoColaboradorCadastrado,estadoForms,cadastrarTime, fecharForm }: FormularioProps) => {
+
+    // const times = times;
 
     const [nome, setNome] = useState('');
     const [cargo, setCargo] = useState('');
@@ -16,13 +26,13 @@ const Formulario = (props) => {
     const [time, setTime] = useState('');
 
     const [nomeTime, setNomeTime] = useState('');
-    const [corTime, setCorTime] = useState('');
+    const [corTime, setCorTime] = useState('#000000');
 
 
 
-    const enviarForm = (evento) => {
+    const enviarForm = (evento:React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault();
-        (props.aoColaboradorCadastrado({
+        (aoColaboradorCadastrado({
             id: uuidv4(),
             nome: nome,
             cargo: cargo,
@@ -36,7 +46,7 @@ const Formulario = (props) => {
         setTime('');
     };
 
-    let display = props.estadoForms ? "show": "hide"
+    let display = estadoForms ? "show": "hide"
 
     return (      
         <>
@@ -71,18 +81,19 @@ const Formulario = (props) => {
 
                     <ListaSuspensa
                         label="Time"
+                        required={false}
                         itens={times}
                         valor={time}
                         aoAlterado={valor => setTime(valor)}
                     />
 
-                    <Botao>Criar card</Botao> {/*É POSSÍVEL PASSAR PARA A TELA FINAL ITENS ANINHADOS USANDO O PROPS.CHILDREN*/}
+                    <Botao><>Criar card</></Botao> {/*É POSSÍVEL PASSAR PARA A TELA FINAL ITENS ANINHADOS USANDO O PROPS.CHILDREN*/}
                 </form>
 
                 <form className='form-time'
                     onSubmit={(evento) => {
                         evento.preventDefault();
-                        props.cadastrarTime({ id: uuidv4(), nome: nomeTime, cor: corTime, type: "text" });
+                        cadastrarTime({ id: uuidv4(), nome: nomeTime, cor: corTime, type: "text" });
                         setNomeTime('')
                         setCorTime('#32a852')
                     }}>
@@ -104,14 +115,14 @@ const Formulario = (props) => {
                         type="color"
                     />
 
-                    <Botao>Criar um novo time</Botao> {/*É POSSÍVEL PASSAR PARA A TELA FINAL ITENS ANINHADOS USANDO O PROPS.CHILDREN*/}
+                    <Botao><>Criar um novo time</></Botao> {/*É POSSÍVEL PASSAR PARA A TELA FINAL ITENS ANINHADOS USANDO O PROPS.CHILDREN*/}
                 </form>
 
             </section>
 
             <div className='controles'>
                 
-                <div><button onClick={props.fecharForm}><img src='/button.svg' alt='Botão para expandir formulários' /></button></div>
+                <div><button onClick={fecharForm}><img src='/button.svg' alt='Botão para expandir formulários' /></button></div>
 
                 <h4>Minha organização:</h4>           
 
