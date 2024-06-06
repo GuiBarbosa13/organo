@@ -7,18 +7,17 @@ import Colaborador from '../Colaborador';
 interface TimeProps{
     colaboradores: IColaborador[],
     cor: string,
-    nome: string,
     time: string,
     mudarCor: (evento:string, id:string) => void,
     id: string,
-    aoDeletar: () => void,
-    aoFavoritar: () => void,
+    aoDeletar: (id:string) => void,
+    aoFavoritar: (id:string) => void,
 
 }
 
-const Time = ({ aoFavoritar,aoDeletar,mudarCor, colaboradores,cor,nome,time, id }:TimeProps) =>{
+const Time = ({ aoFavoritar,aoDeletar,mudarCor, colaboradores,cor,time, id }:TimeProps) =>{
     return(
-        (colaboradores.length > 0) && 
+        (colaboradores.length > 0) ?
 
         <section className='time'style={{backgroundColor : hexToRgba(cor, '0.5')}}>
 
@@ -47,6 +46,7 @@ const Time = ({ aoFavoritar,aoDeletar,mudarCor, colaboradores,cor,nome,time, id 
             </div>
 
         </section>
+        : <></>
     )
 
 }

@@ -6,8 +6,6 @@ interface ListaSuspensaProps{
     required: boolean,
     valor: string,
     itens: string[],
-
-
 }
 
 const ListaSuspensa = ({ label,aoAlterado,required,valor,itens }:ListaSuspensaProps) => {

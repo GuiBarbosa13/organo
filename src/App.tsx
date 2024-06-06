@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import Banner from './componentes/Banner/';
+import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Time from './componentes/Time';
 import Rodape from './componentes/Rodape';
+import { IColaborador } from './shared/interface/IColaborador';
+import { ITime } from './shared/interface/ITime';
 
 function App() {
 
-  const [times, setTimes] = useState([
+  const [times, setTimes] = useState<ITime[]>([
     {
       id: uuidv4(),
       nome: 'Front-end',
@@ -31,7 +33,7 @@ function App() {
     }
   ]);
 
-  const [colaboradores, setColaboradores] = useState([
+  const [colaboradores, setColaboradores] = useState<IColaborador[]>([
     {
       id: uuidv4(),
       nome: "Guilherme Barbosa",
@@ -42,17 +44,17 @@ function App() {
     }
   ])
 
-  const aoColaboradorAdicionado = (colaborador) => {
+  const aoColaboradorAdicionado = (colaborador: IColaborador) => {
     setColaboradores([...colaboradores, colaborador])
   }
 
   let [estadoForms, setEstadoForms] = useState(false);
 
-  function deletarColaborador(id){
+  function deletarColaborador(id:string){
     setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id));
   }
 
-  function mudaCor(cor, id){
+  function mudaCor(cor:string, id:string){
     setTimes(times.map(time => {
       if(time.id === id){
         time.cor = cor
@@ -61,7 +63,7 @@ function App() {
     }));
   }
 
-  function cadastrarTime(novoTime){
+  function cadastrarTime(novoTime: ITime){
       let listaTimes = times.map(time => time.nome);
 
       if (!listaTimes.includes(novoTime.nome)){
@@ -69,7 +71,7 @@ function App() {
       }      
   }
 
-  function resolverFav(id){
+  function resolverFav(id: string){
     setColaboradores(colaboradores.map(colaborador =>{
       if (colaborador.id === id) colaborador.favorito = !colaborador.favorito
       return colaborador

@@ -54,7 +54,7 @@ const Formulario = ({ times,aoColaboradorCadastrado,estadoForms,cadastrarTime, f
                 <form onSubmit={enviarForm}>
                     <h2>Preencha os dados para criar o card do colaborador.</h2>
                     <Campo
-                        obrigatorio={true}
+                        required={true}
                         label="Nome"
                         placeholder="Digite seu nome"
                         valor={nome}
@@ -63,7 +63,7 @@ const Formulario = ({ times,aoColaboradorCadastrado,estadoForms,cadastrarTime, f
                     />
 
                     <Campo
-                        obrigatorio={true}
+                        required={true}
                         label="Cargo"
                         placeholder="Digite seu cargo"
                         valor={cargo}
@@ -72,6 +72,7 @@ const Formulario = ({ times,aoColaboradorCadastrado,estadoForms,cadastrarTime, f
                     />
 
                     <Campo
+                        required
                         label="Imagem"
                         placeholder="Informe o endereço da imagem"
                         valor={imagem}
@@ -81,7 +82,7 @@ const Formulario = ({ times,aoColaboradorCadastrado,estadoForms,cadastrarTime, f
 
                     <ListaSuspensa
                         label="Time"
-                        required={false}
+                        required={true}
                         itens={times}
                         valor={time}
                         aoAlterado={valor => setTime(valor)}
@@ -99,7 +100,7 @@ const Formulario = ({ times,aoColaboradorCadastrado,estadoForms,cadastrarTime, f
                     }}>
                     <h2>Preencha os dados para criar um novo time.</h2>
                     <Campo
-                        obrigatorio
+                        required={true}
                         label="Nome"
                         placeholder="Digite o nome do time"
                         valor={nomeTime}
@@ -107,9 +108,9 @@ const Formulario = ({ times,aoColaboradorCadastrado,estadoForms,cadastrarTime, f
                     />
 
                     <Campo
-                        obrigatorio
+                        required
                         label="Cor"
-                        placeholder="Digite a cor do time"
+                        placeholder="Escolha a cor do time"
                         valor={corTime}
                         aoAlterado={valor => setCorTime(valor)}
                         type="color"
