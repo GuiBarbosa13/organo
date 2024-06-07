@@ -12,7 +12,6 @@ interface TimeProps{
     id: string,
     aoDeletar: (id:string) => void,
     aoFavoritar: (id:string) => void,
-
 }
 
 const Time = ({ aoFavoritar,aoDeletar,mudarCor, colaboradores,cor,time, id }:TimeProps) =>{
@@ -39,6 +38,7 @@ const Time = ({ aoFavoritar,aoDeletar,mudarCor, colaboradores,cor,time, id }:Tim
                         time = {time}
                         favorito = {colab.favorito}
                         aoFavoritar = {aoFavoritar}
+                        data= {colab.data}
                     />)
                     })
                 }

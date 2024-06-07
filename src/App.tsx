@@ -41,12 +41,15 @@ function App() {
       imagem: "http://github.com/GuiBarbosa13.png",
       time: times[0].nome,
       favorito: true,
+      data: "Wed Jan 05 2022 16:31:34 GMT-0300"
     }
   ])
 
   const aoColaboradorAdicionado = (colaborador: IColaborador) => {
     setColaboradores([...colaboradores, colaborador])
   }
+
+
 
   let [estadoForms, setEstadoForms] = useState(false);
 
@@ -81,8 +84,6 @@ function App() {
   function fecharForm(){
     setEstadoForms(!estadoForms)
 }
-
-
 
   return (
     <div className="App">

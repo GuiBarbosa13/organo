@@ -13,9 +13,10 @@ interface ColaboradorProps{
     favorito: boolean,
     id: string,
     time: string,
+    data: string,
 }
 
-const Colaborador = ({ time,id,aoDeletar,aoFavoritar,cargo,corDeFundo,favorito,imagem,nome }:ColaboradorProps) => {
+const Colaborador = ({ time,id,aoDeletar,aoFavoritar,cargo,corDeFundo,favorito,imagem,nome, data }:ColaboradorProps) => {
 
     function fav (){
         aoFavoritar(id);
@@ -30,6 +31,7 @@ const Colaborador = ({ time,id,aoDeletar,aoFavoritar,cargo,corDeFundo,favorito,i
             <div className='rodape'>
                 <h4>{nome}</h4>
                 <h5>{cargo}</h5>
+                <h5>{new Date(data).toLocaleDateString()}</h5>
 
                 <div className="favoritar">
                     {favorito

@@ -7,15 +7,15 @@ import { v4 as uuidv4 } from 'uuid';
 import { IColaborador } from '../../shared/interface/IColaborador';
 import { ITime } from '../../shared/interface/ITime';
 
-interface FormularioProps{
+interface FormularioProps {
     times: string[],
     aoColaboradorCadastrado: (colaborador: IColaborador) => void,
     estadoForms: boolean,
-    cadastrarTime: (time:ITime) => void,
+    cadastrarTime: (time: ITime) => void,
     fecharForm: () => void,
 }
 
-const Formulario = ({ times,aoColaboradorCadastrado,estadoForms,cadastrarTime, fecharForm }: FormularioProps) => {
+const Formulario = ({ times, aoColaboradorCadastrado, estadoForms, cadastrarTime, fecharForm }: FormularioProps) => {
 
     // const times = times;
 
@@ -28,9 +28,9 @@ const Formulario = ({ times,aoColaboradorCadastrado,estadoForms,cadastrarTime, f
     const [nomeTime, setNomeTime] = useState('');
     const [corTime, setCorTime] = useState('#000000');
 
+    const [data, setData] = useState('');
 
-
-    const enviarForm = (evento:React.FormEvent<HTMLFormElement>) => {
+    const enviarForm = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault();
         (aoColaboradorCadastrado({
             id: uuidv4(),
@@ -38,17 +38,19 @@ const Formulario = ({ times,aoColaboradorCadastrado,estadoForms,cadastrarTime, f
             cargo: cargo,
             time: time,
             imagem: imagem,
-            favorito: false
+            favorito: false,
+            data: data,
         }));
         setNome('');
         setCargo('');
         setImagem('');
         setTime('');
+        setData('');
     };
 
-    let display = estadoForms ? "show": "hide"
+    let display = estadoForms ? "show" : "hide"
 
-    return (      
+    return (
         <>
             <section className={`formulario-${display}`}>
                 <form onSubmit={enviarForm}>
@@ -78,6 +80,15 @@ const Formulario = ({ times,aoColaboradorCadastrado,estadoForms,cadastrarTime, f
                         valor={imagem}
                         type="text"
                         aoAlterado={valor => setImagem(valor)}
+                    />
+
+                    <Campo
+                        required
+                        label="Data de entrada no time"
+                        placeholder=""
+                        valor={data}
+                        type="date"
+                        aoAlterado={valor => setData(valor)}
                     />
 
                     <ListaSuspensa
@@ -122,10 +133,10 @@ const Formulario = ({ times,aoColaboradorCadastrado,estadoForms,cadastrarTime, f
             </section>
 
             <div className='controles'>
-                
+
                 <div><button onClick={fecharForm}><img src='/button.svg' alt='Botão para expandir formulários' /></button></div>
 
-                <h4>Minha organização:</h4>           
+                <h4>Minha organização:</h4>
 
             </div>
         </>
